@@ -14,13 +14,15 @@ const routes = [
       {
         path: "/pokedex",
         name: "pokedex",
-        component: () => import("../views/About"),
+        component: () => import("../views/pokedex/Pokedex"),
+      },
+      {
+        path: "/settings",
+        name: "settings",
+        component: () => import("../views/Settings"),
       },
     ],
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: "*",
     component: () => import("../views/Error404.vue"),

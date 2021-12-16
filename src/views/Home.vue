@@ -1,15 +1,11 @@
 <template>
-  <hello-world />
+  <section>
+    <h1>What pokémon are you looking for?</h1>
+  </section>
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld";
-
 export default {
   name: "Home",
-
-  components: {
-    HelloWorld,
-  },
 };
 </script>

@@ -1,12 +1,12 @@
 <template>
   <section>
-    <h1>Error404</h1>
+    <h1>Settings</h1>
   </section>
 </template>
 
 <script>
 export default {
-  name: "Error404",
+  name: "Settings",
 };
 </script>
 
