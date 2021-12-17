@@ -1,5 +1,6 @@
 <template>
   <v-main>
+    <Loading />
     <app-bar />
     <navigation-drawer />
     <v-container>
@@ -12,6 +13,7 @@
 export default {
   name: "MainLayout",
   components: {
+    Loading: () => import("../components/Loading"),
     AppBar: () => import("./components/AppBar"),
     NavigationDrawer: () => import("./components/NavigationDrawer"),
   },
