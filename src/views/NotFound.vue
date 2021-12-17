@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="">
     <h1>Error404</h1>
   </section>
 </template>
