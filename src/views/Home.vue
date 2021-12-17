@@ -24,7 +24,7 @@
       </v-col>
       <v-col cols="12" md="5" lg="5" align-self="center">
         <v-card outlined rounded="xl">
-          <v-card-title> Pokemons destacados </v-card-title>
+          <v-card-title> Featured pokemon </v-card-title>
           <v-divider></v-divider>
           <v-list two-line>
             <v-list-item
@@ -52,7 +52,7 @@
       </v-col>
     </v-row>
 
-    <section>
+    <section class="mt-5">
       <h2>Pokemon news</h2>
       <v-row>
         <v-col
@@ -101,12 +101,36 @@ export default {
 
   data: () => ({
     cards: [
-      { name: "Pokedex", route: "pokedex", color: "#4fc1a6" },
-      { name: "Movimientos", route: "notFound", color: "#f7786b" },
-      { name: "Objetos", route: "notFound", color: "#ffce4b" },
-      { name: "Lugares", route: "notFound", color: "#58aaf6" },
-      { name: "Tipos", route: "notFound", color: "#7c538c  " },
-      { name: "Group Builder", route: "notFound", color: "#b1736c" },
+      {
+        name: "Pokedex",
+        route: "pokedex",
+        color: "#4fc1a6",
+      },
+      {
+        name: "Movements",
+        route: "404",
+        color: "#f7786b",
+      },
+      {
+        name: "Objects",
+        route: "404",
+        color: "#ffce4b",
+      },
+      {
+        name: "Places",
+        route: "404",
+        color: "#58aaf6",
+      },
+      {
+        name: "Types",
+        route: "404",
+        color: "#7c538c  ",
+      },
+      {
+        name: "Group Builder",
+        route: "404",
+        color: "#b1736c",
+      },
     ],
     pokeFeatured: pokeFeatured,
     pokeNews: pokeNews,

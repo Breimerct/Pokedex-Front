@@ -25,8 +25,12 @@ const routes = [
   },
   {
     path: "*",
-    name: "notFound",
-    component: () => import("../views/Error404.vue"),
+    redirect: "404",
+  },
+  {
+    path: "/404",
+    name: "404",
+    component: () => import("../views/NotFound"),
   },
 ];
 
