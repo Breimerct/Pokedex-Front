@@ -30,3 +30,20 @@ export async function fetchPokemonsName(context) {
     EventBus.$emit("showOrHideLoading", { show: false });
   }
 }
+
+export async function fetchPokemonAbout(context, payload) {
+  try {
+    EventBus.$emit("showOrHideLoading", { show: true });
+    const { data } = await httpClient.get("/pokemon-detail/about", {
+      params: {
+        pokemonName: payload.name,
+      },
+    });
+    context.commit("setPokemonAbout", data.about);
+    console.log(data.about);
+  } catch (e) {
+    console.log("Error! ", e);
+  } finally {
+    EventBus.$emit("showOrHideLoading", { show: false });
+  }
+}

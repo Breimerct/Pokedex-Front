@@ -9,3 +9,7 @@ export function setPokemonsName(state, payload) {
 export function setTotalPokemons(state, payload) {
   state.totalPokemons = payload;
 }
+
+export function setPokemonAbout(state, payload) {
+  state.pokemonAbout = payload;
+}

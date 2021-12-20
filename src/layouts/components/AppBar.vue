@@ -92,7 +92,9 @@ export default {
     },
   },
   mounted() {
-    this.fetchPokemonsName();
+    if (this.getPokemonsName === null) {
+      this.fetchPokemonsName();
+    }
   },
 };
 </script>

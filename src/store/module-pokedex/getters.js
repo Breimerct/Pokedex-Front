@@ -9,3 +9,7 @@ export function getPokemonsName(state) {
 export function getTotalPokemons(state) {
   return state.totalPokemons;
 }
+
+export function getPokemonAbout(state) {
+  return state.pokemonAbout;
+}
