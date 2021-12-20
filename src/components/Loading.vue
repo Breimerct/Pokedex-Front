@@ -12,13 +12,6 @@ export default {
   data: () => ({
     overlay: false,
   }),
-  watch: {
-    overlay(val) {
-      if (val) {
-        console.log(val);
-      }
-    },
-  },
   mounted() {
     EventBus.$on("showOrHideLoading", (data) => {
       this.overlay = data.show;
