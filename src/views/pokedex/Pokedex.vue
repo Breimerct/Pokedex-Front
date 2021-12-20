@@ -1,7 +1,9 @@
 <template>
   <div class="pokedex">
     <h1>Pokédex</h1>
-
+    <v-overlay :value="this.getPokedex === null" z-index="99">
+      <v-progress-circular indeterminate size="100"></v-progress-circular>
+    </v-overlay>
     <v-row class="mt-5">
       <v-col
         cols="6"
@@ -15,7 +17,7 @@
         <poke-card v-bind="pokemon" />
       </v-col>
     </v-row>
-    <div class="text-center mt-6">
+    <div class="text-center mt-6" v-if="this.getTotalPokemons !== null">
       <v-pagination
         v-model="currentPage"
         :length="maxPagination"

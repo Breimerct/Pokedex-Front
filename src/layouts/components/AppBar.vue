@@ -2,7 +2,9 @@
   <v-app-bar app clipped-left color="appbar">
     <div
       class="d-flex align-center"
-      v-if="$vuetify.breakpoint.mobile && !this.$route.hash.includes('#search')"
+      v-if="
+        !$vuetify.breakpoint.mobile || !this.$route.hash.includes('#search')
+      "
     >
       <v-img
         alt="Pokedex logo"
@@ -26,9 +28,17 @@
     <v-spacer></v-spacer>
 
     <div
-      v-if="$vuetify.breakpoint.mobile && !this.$route.hash.includes('#search')"
+      v-if="
+        !$vuetify.breakpoint.mobile || !this.$route.hash.includes('#search')
+      "
     >
-      <v-btn @click="switchSearchMode" icon>
+      <v-btn
+        @click="switchSearchMode"
+        icon
+        v-if="
+          $vuetify.breakpoint.mobile && !this.$route.hash.includes('#search')
+        "
+      >
         <v-icon> search </v-icon>
       </v-btn>
       <v-menu offset-y>
