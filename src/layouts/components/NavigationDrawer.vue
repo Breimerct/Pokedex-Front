@@ -1,22 +1,29 @@
 <template>
-  <v-navigation-drawer app clipped>
-    <v-list shaped dense>
-      <v-list-item-group color="primary">
-        <router-list v-for="(route, i) of routesList" :key="i" v-bind="route" />
+  <div>
+    <v-navigation-drawer app clipped>
+      <v-list shaped dense>
+        <v-list-item-group color="primary">
+          <router-list
+            v-for="(route, i) of routesList"
+            :key="i"
+            v-bind="route"
+          />
 
-        <v-divider class="ma-3"></v-divider>
+          <v-divider class="ma-3"></v-divider>
 
-        <v-list-item class="mb-auto" :to="{ name: 'settings' }">
-          <v-list-item-icon>
-            <v-icon>mdi-cog</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>Ajustes</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
-  </v-navigation-drawer>
+          <v-list-item class="mb-auto" :to="{ name: 'settings' }">
+            <v-list-item-icon>
+              <v-icon>mdi-cog</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>Ajustes</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+    <mobile-footer-tabs :routes-items="routesList" />
+  </div>
 </template>
 
 <script>
@@ -36,6 +43,7 @@ const routesArray = [
 export default {
   name: "NavigationDrawer",
   components: {
+    MobileFooterTabs: () => import("./MobileFooterTabs"),
     RouterList: () => import("./RouterList"),
   },
   data: () => ({

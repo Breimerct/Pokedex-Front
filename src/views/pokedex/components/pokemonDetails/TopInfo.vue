@@ -74,7 +74,7 @@ export default {
     getVarietiesToggle() {
       if (this.getPokemonVarieties !== null) {
         return this.getPokemonAbout.pokemonName === "pikachu"
-          ? this.getPokemonVarieties.slice(0, 7)
+          ? this.getPokemonVarieties.slice(0, 6)
           : this.getPokemonVarieties;
       } else {
         return [];
