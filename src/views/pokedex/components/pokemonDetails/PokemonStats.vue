@@ -2,10 +2,9 @@
   <v-card flat>
     <v-card-text>
       <h3 class="font-weight-black pb-7">Base stats</h3>
-      <!--Info-->
       <v-row v-for="(stats, i) in pokemonStats" :key="i">
         <v-col cols="3" class="pb-0">
-          {{ stats.name }}
+          {{ stats.name | nameStats | capitalize }}
         </v-col>
         <v-col cols="2" class="font-weight-bold pb-0">
           {{ stats.value }}

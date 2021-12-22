@@ -21,3 +21,7 @@ export function setPokemonVarieties(state, payload) {
 export function setPokemonStats(state, payload) {
   state.pokemonStats = payload;
 }
+
+export function setPokemonEvolutions(state, payload) {
+  state.pokemonEvolutions = payload;
+}

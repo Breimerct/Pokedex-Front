@@ -1,13 +1,13 @@
 <template>
-  <section id="bottom-info" v-if="getPokemonVarieties !== null">
-    <v-card class="pokeCard top-border-rounded">
+  <section id="bottom-info">
+    <v-card class="pokeCard" elevation="5" rounded="xl">
       <div class="pokeImg">
         <v-img
           transition="none"
           contain
           height="300px"
           :src="
-            getPokemonVarieties[varietySelected].img ||
+            pokemonVarieties[varietySelected].img ||
             require('../../../../assets/icon-pokedex.jpg')
           "
         ></v-img>
@@ -19,20 +19,16 @@
 
         <v-tab-item>
           <about-pokemon
-            :get-pokemon-about="getPokemonAbout"
-            :get-pokemon-varieties="getPokemonVarieties"
+            :get-pokemon-about="pokemonAbout"
+            :get-pokemon-varieties="pokemonVarieties"
             :variety-selected="varietySelected"
           />
         </v-tab-item>
-        <v-tab-item class="pb-10" v-if="getPokemonStats">
-          <pokemon-stats :pokemon-stats="getPokemonStats" />
+        <v-tab-item class="pb-10" v-if="pokemonStats">
+          <pokemon-stats :pokemon-stats="pokemonStats" />
         </v-tab-item>
         <v-tab-item class="pb-10">
-          <v-card flat>
-            <v-card-text>
-              <h1>Evolutions</h1>
-            </v-card-text>
-          </v-card>
+          <evolutions-pokemon :pokemon-evolutions="pokemonEvolutions" />
         </v-tab-item>
       </v-tabs>
     </v-card>
@@ -40,37 +36,41 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "BottomInfo",
   components: {
+    EvolutionsPokemon: () => import("./EvolutionsPokemon"),
     PokemonStats: () => import("./PokemonStats"),
     AboutPokemon: () => import("./AboutPokemon"),
   },
+
   props: {
     varietySelected: {
       type: Number,
       require: true,
       default: 0,
     },
-  },
-
-  computed: {
-    ...mapGetters("pokedexModule", [
-      "getPokemonAbout",
-      "getPokemonVarieties",
-      "getPokemonStats",
-    ]),
+    pokemonAbout: {
+      type: Object,
+      require: true,
+    },
+    pokemonVarieties: {
+      type: [],
+      require: true,
+    },
+    pokemonStats: {
+      type: [],
+      require: true,
+    },
+    pokemonEvolutions: {
+      type: Object,
+      require: true,
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
-.top-border-rounded {
-  border-top-left-radius: 15px !important;
-  border-top-right-radius: 15px !important;
-}
 #bottom-info {
   z-index: 2;
 }

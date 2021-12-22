@@ -78,3 +78,19 @@ export async function fetchPokemonStats(context, payload) {
     EventBus.$emit("showOrHideLoading", { show: false });
   }
 }
+
+export async function fetchPokemonEvolutions(context, payload) {
+  try {
+    EventBus.$emit("showOrHideLoading", { show: true });
+    const { data } = await httpClient.get("/pokemon-detail/evolutions", {
+      params: {
+        pokemonName: payload.name,
+      },
+    });
+    context.commit("setPokemonEvolutions", data.evolutions);
+  } catch (e) {
+    console.log("Error! ", e);
+  } finally {
+    EventBus.$emit("showOrHideLoading", { show: false });
+  }
+}

@@ -34,7 +34,6 @@
               >
                 {{ ability }}
                 {{
-                  i === 0 &&
                   getPokemonVarieties[varietySelected].abilities.length > 1
                     ? ", "
                     : ""
@@ -79,7 +78,6 @@
               >
                 {{ egg }}
                 {{
-                  i === 0 &&
                   getPokemonVarieties[varietySelected].eggGroups.length > 1
                     ? ", "
                     : ""

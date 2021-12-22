@@ -6,5 +6,6 @@ export default function () {
     pokemonAbout: null,
     pokemonVarieties: null,
     pokemonStats: null,
+    pokemonEvolutions: null,
   };
 }

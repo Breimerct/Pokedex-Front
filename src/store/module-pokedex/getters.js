@@ -21,3 +21,7 @@ export function getPokemonVarieties(state) {
 export function getPokemonStats(state) {
   return state.pokemonStats;
 }
+
+export function getPokemonEvolutions(state) {
+  return state.pokemonEvolutions;
+}
