@@ -61,13 +61,12 @@
           </v-row>
         </v-col>
       </v-row>
-      <v-divider></v-divider>
       <v-row
-        v-for="(secondEvolution, i) in pokemonEvolutions.evolutionsPokemon"
+        v-for="(firstEvolution, i) in pokemonEvolutions.evolutionsPokemon"
         v-bind:key="i"
       >
         <v-col
-          v-if="secondEvolution.evolutions.length > 0"
+          v-if="firstEvolution.evolutions.length > 0"
           class="my-auto"
           cols="4"
         >
@@ -78,7 +77,7 @@
               :to="{
                 name: 'pokemonDetail',
                 params: {
-                  pokemonName: secondEvolution.name,
+                  pokemonName: firstEvolution.name,
                 },
               }"
             >
@@ -86,21 +85,23 @@
                 transition="none"
                 class="mx-auto"
                 width="100"
-                :src="secondEvolution.img"
+                :src="firstEvolution.img"
               ></v-img>
               <v-card-text class="pa-0 text-center">
-                {{ secondEvolution.name }}
+                {{ firstEvolution.name }}
               </v-card-text>
             </v-card>
           </div>
         </v-col>
-
         <v-col class="my-auto" cols="8">
-          <v-row v-for="(evolveTo, i) in secondEvolution.evolutions" :key="i">
+          <v-row
+            v-for="(secondEvolution, i) in firstEvolution.evolutions"
+            :key="i"
+          >
             <v-col class="my-auto" cols="6">
               <div class="text-center mb-0">
                 <p>
-                  {{ evolveTo.trigger }}
+                  {{ secondEvolution.trigger }}
                 </p>
               </div>
             </v-col>
@@ -111,18 +112,18 @@
                 flat
                 :to="{
                   name: 'pokemonDetail',
-                  params: { pokemonName: evolveTo.name },
+                  params: { pokemonName: secondEvolution.name },
                 }"
               >
                 <v-img
                   transition="none"
                   class="mx-auto"
                   width="100"
-                  :src="evolveTo.img"
+                  :src="secondEvolution.img"
                 ></v-img>
-                <v-card-text class="pa-0 text-center">{{
-                  evolveTo.name
-                }}</v-card-text>
+                <v-card-text class="pa-0 text-center">
+                  {{ secondEvolution.name }}
+                </v-card-text>
               </v-card>
             </v-col>
           </v-row>

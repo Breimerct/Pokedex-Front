@@ -1,24 +1,24 @@
 const pokeFeatured = [
   {
-    name: "bulbasaur",
+    name: "pikachu",
     artwork:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    primaryType: "Grass",
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    primaryType: "Electric",
+    secondaryType: "",
+  },
+  {
+    name: "mewtwo",
+    artwork:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png",
+    primaryType: "Psychic",
+    secondaryType: "",
+  },
+  {
+    name: "gastly",
+    artwork:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+    primaryType: "Ghost",
     secondaryType: "Poison",
-  },
-  {
-    name: "squirtle",
-    artwork:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-    primaryType: "Water",
-    secondaryType: "",
-  },
-  {
-    name: "charmander",
-    artwork:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-    primaryType: "Fire",
-    secondaryType: "",
   },
 ];
 
