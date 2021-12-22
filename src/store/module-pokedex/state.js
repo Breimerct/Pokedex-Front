@@ -3,5 +3,9 @@ export default function () {
     pokedex: null,
     pokemonsName: null,
     totalPokemons: null,
+    pokemonAbout: null,
+    pokemonVarieties: null,
+    pokemonStats: null,
+    pokemonEvolutions: null,
   };
 }

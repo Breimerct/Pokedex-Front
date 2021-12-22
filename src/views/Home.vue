@@ -31,6 +31,10 @@
               v-for="pokemon of pokeFeatured"
               :key="pokemon.name"
               ripple
+              :to="{
+                name: 'pokemonDetail',
+                params: { pokemonName: pokemon.name },
+              }"
             >
               <v-list-item-avatar tile>
                 <v-img :src="pokemon.artwork"></v-img>

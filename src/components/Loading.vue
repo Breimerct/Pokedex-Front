@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import EventBus from "@/helpers/eventBus";
+import EventBus from "../helpers/eventBus";
 
 export default {
   name: "Loading",

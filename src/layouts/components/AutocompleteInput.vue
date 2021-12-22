@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import EventBus from "../../helpers/eventBus";
+
 export default {
   name: "AutocompleteInput",
 
@@ -51,7 +53,16 @@ export default {
 
   methods: {
     submitSearch() {
-      console.log(this.search);
+      EventBus.$emit("showOrHideOverlay", { show: false });
+      if (this.search) {
+        this.$router.push({
+          name: "pokemonDetail",
+          params: {
+            pokemonName: this.search,
+          },
+          hash: "",
+        });
+      }
     },
     closeSearch() {
       this.$emit("closeSearch");

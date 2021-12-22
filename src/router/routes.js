@@ -17,6 +17,11 @@ const routes = [
         component: () => import("../views/pokedex/Pokedex"),
       },
       {
+        path: "/pokemon-datail/:pokemonName",
+        name: "pokemonDetail",
+        component: () => import("../views/pokedex/PokemonDetail"),
+      },
+      {
         path: "/settings",
         name: "settings",
         component: () => import("../views/Settings"),

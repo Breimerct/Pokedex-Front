@@ -1,6 +1,9 @@
 <template>
   <v-overlay
-    :value="overlay || this.$route.hash.includes('#search')"
+    :value="
+      (overlay && $vuetify.breakpoint.mobile) ||
+      this.$route.hash.includes('#search')
+    "
     absolute
     z-index="4"
     @click="close"

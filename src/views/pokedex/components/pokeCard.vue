@@ -1,5 +1,16 @@
 <template>
-  <v-card class="pa-3" rounded="xl" :color="types[0]" flat ripple dark>
+  <v-card
+    class="pa-3"
+    rounded="xl"
+    :color="types[0]"
+    flat
+    ripple
+    dark
+    :to="{
+      name: 'pokemonDetail',
+      params: { pokemonName: name },
+    }"
+  >
     <v-card-title
       class="text-capitalize text-body pl-3 pt-0 pl-0 font-weight-bold d-block text-truncate"
     >

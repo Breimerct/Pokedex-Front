@@ -1,7 +1,7 @@
 <template>
   <div class="pokedex">
     <h1>Pokédex</h1>
-    <v-overlay :value="this.getPokedex === null" z-index="99">
+    <v-overlay :value="getPokedex === null" z-index="99">
       <v-progress-circular indeterminate size="100"></v-progress-circular>
     </v-overlay>
     <v-row class="mt-5">
