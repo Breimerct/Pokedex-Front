@@ -6,7 +6,7 @@
     "
     absolute
     z-index="4"
-    @click="close"
+    @click.native="close"
   ></v-overlay>
 </template>
 

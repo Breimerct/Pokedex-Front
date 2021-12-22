@@ -7,7 +7,7 @@
     ]"
   >
     <loading />
-    <overlay @close="closeSearch" />
+    <overlay @closeSearch="closeSearch" />
     <app-bar ref="appbar" />
     <navigation-drawer />
     <v-container>
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     closeSearch() {
-      // this.$refs.appbar.switchSearchMode();
+      this.$refs.appbar.switchSearchMode();
     },
   },
 };
