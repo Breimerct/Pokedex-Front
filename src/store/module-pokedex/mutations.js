@@ -13,3 +13,11 @@ export function setTotalPokemons(state, payload) {
 export function setPokemonAbout(state, payload) {
   state.pokemonAbout = payload;
 }
+
+export function setPokemonVarieties(state, payload) {
+  state.pokemonVarieties = payload;
+}
+
+export function setPokemonStats(state, payload) {
+  state.pokemonStats = payload;
+}

@@ -13,3 +13,11 @@ export function getTotalPokemons(state) {
 export function getPokemonAbout(state) {
   return state.pokemonAbout;
 }
+
+export function getPokemonVarieties(state) {
+  return state.pokemonVarieties;
+}
+
+export function getPokemonStats(state) {
+  return state.pokemonStats;
+}

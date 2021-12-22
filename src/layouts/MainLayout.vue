@@ -1,8 +1,8 @@
 <template>
   <v-main
     :class="[
-      this.$route.name === 'pokemonDetail' && getPokemonAbout !== null
-        ? getPokemonAbout.types[0]
+      this.$route.name === 'pokemonDetail' && getPokemonVarieties !== null
+        ? getPokemonVarieties[0].types[0]
         : '',
     ]"
   >
@@ -28,7 +28,7 @@ export default {
     NavigationDrawer: () => import("./components/NavigationDrawer"),
   },
   computed: {
-    ...mapGetters("pokedexModule", ["getPokemonAbout"]),
+    ...mapGetters("pokedexModule", ["getPokemonVarieties"]),
   },
   methods: {
     closeSearch() {

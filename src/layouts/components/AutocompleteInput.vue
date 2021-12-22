@@ -53,14 +53,16 @@ export default {
 
   methods: {
     submitSearch() {
-      this.$router.push({
-        name: "pokemonDetail",
-        params: {
-          pokemonName: this.search,
-        },
-        hash: "",
-      });
-      EventBus.$emit("showOrHideLoading", { show: false });
+      EventBus.$emit("showOrHideOverlay", { show: false });
+      if (this.search) {
+        this.$router.push({
+          name: "pokemonDetail",
+          params: {
+            pokemonName: this.search,
+          },
+          hash: "",
+        });
+      }
     },
     closeSearch() {
       this.$emit("closeSearch");

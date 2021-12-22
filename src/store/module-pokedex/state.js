@@ -4,5 +4,7 @@ export default function () {
     pokemonsName: null,
     totalPokemons: null,
     pokemonAbout: null,
+    pokemonVarieties: null,
+    pokemonStats: null,
   };
 }
