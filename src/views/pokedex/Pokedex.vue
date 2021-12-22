@@ -17,7 +17,10 @@
         <poke-card v-bind="pokemon" />
       </v-col>
     </v-row>
-    <div class="text-center mt-6" v-if="this.getTotalPokemons !== null">
+    <div
+      class="text-center mt-6"
+      v-if="this.getTotalPokemons !== null && getPokedex !== null"
+    >
       <v-pagination
         v-model="currentPage"
         :length="maxPagination"
@@ -28,7 +31,7 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "Pokedex",
@@ -48,8 +51,25 @@ export default {
     },
   },
 
+  watch: {
+    $route(newVal, oldVal) {
+      if (!newVal.query.page && oldVal.query.page) {
+        this.currentPage = parseInt(
+          typeof oldVal.query.page === "string" ? oldVal.query.page : 1
+        );
+        this.$router.push({
+          query: {
+            page: this.currentPage,
+          },
+        });
+        window.scrollTo(0, 0);
+      }
+    },
+  },
+
   methods: {
     ...mapActions("pokedexModule", ["fetchPokedex"]),
+    ...mapMutations("pokedexModule", ["setPokedex"]),
     nexPage() {
       this.$router.push({
         query: {
@@ -61,14 +81,19 @@ export default {
   },
 
   mounted() {
+    this.setPokedex(null);
     if (this.$route.query.page) {
       this.currentPage = parseInt(
         typeof this.$route.query.page === "string" ? this.$route.query.page : 1
       );
+    } else {
+      this.$router.push({
+        query: {
+          page: 1,
+        },
+      });
     }
-    if (this.getPokedex === null) {
-      this.fetchPokedex({ page: this.currentPage });
-    }
+    this.fetchPokedex({ page: this.currentPage });
   },
 };
 </script>
