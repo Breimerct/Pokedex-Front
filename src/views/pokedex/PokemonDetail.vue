@@ -53,13 +53,13 @@ export default {
   watch: {
     getPokemonVarieties: function (val) {
       if (val !== null) {
-        EventBus.$emit("showOrHideLoading", { show: false });
+        EventBus.$emit("showOrHideLoading", { show: true });
         this.fetchPokemonStats({
           url: this.getPokemonVarieties[this.varietySelected].url,
         });
         this.fetchPokemonEvolutions({ name: this.$route.params.pokemonName });
       } else {
-        EventBus.$emit("showOrHideLoading", { show: true });
+        EventBus.$emit("showOrHideLoading", { show: false });
       }
     },
     getPokemonAbout: function (val) {
