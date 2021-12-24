@@ -25,3 +25,11 @@ export function getPokemonStats(state) {
 export function getPokemonEvolutions(state) {
   return state.pokemonEvolutions;
 }
+
+export function getRegions(state) {
+  return state.regions;
+}
+
+export function getPokedexes(state) {
+  return state.pokedexes;
+}

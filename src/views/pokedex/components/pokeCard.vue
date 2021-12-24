@@ -12,12 +12,11 @@
     }"
   >
     <v-card-title
-      class="text-capitalize text-body pl-3 pt-0 pl-0 font-weight-bold d-block text-truncate"
+      class="text-capitalize pl-3 pt-0 font-weight-bold text-truncate"
     >
       {{ name }}
     </v-card-title>
     <v-row>
-      <!--Pokemon Types-->
       <v-col class="pb-0 pr-0 pt-0" cols="6">
         <v-chip
           style="height: 25px"
@@ -30,14 +29,9 @@
         </v-chip>
       </v-col>
 
-      <!--Pokemon artwork-->
-      <v-col class="pa-0" cols="6">
+      <v-col class="pa-0 ma-0" cols="6">
         <v-responsive :aspect-ratio="1">
-          <v-img :src="img" transition="scale">
-            <template v-slot:placeholder>
-              <v-skeleton-loader> </v-skeleton-loader>
-            </template>
-          </v-img>
+          <v-img :src="img" transition="scale" />
         </v-responsive>
       </v-col>
     </v-row>

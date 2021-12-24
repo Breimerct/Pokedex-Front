@@ -25,3 +25,11 @@ export function setPokemonStats(state, payload) {
 export function setPokemonEvolutions(state, payload) {
   state.pokemonEvolutions = payload;
 }
+
+export function setRegions(state, payload) {
+  state.regions = payload;
+}
+
+export function setPokedexes(state, payload) {
+  state.pokedexes = payload;
+}

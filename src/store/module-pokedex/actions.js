@@ -6,7 +6,7 @@ export async function fetchPokedex(context, payload) {
     EventBus.$emit("showOrHideLoading", { show: true });
     const { data } = await httpClient.get("/pokedex", {
       params: {
-        region: "national",
+        region: !payload.region ? "national" : payload.region,
         page: !payload ? 1 : payload.page,
       },
     });
@@ -88,6 +88,36 @@ export async function fetchPokemonEvolutions(context, payload) {
       },
     });
     context.commit("setPokemonEvolutions", data.evolutions);
+  } catch (e) {
+    console.log("Error! ", e);
+  } finally {
+    EventBus.$emit("showOrHideLoading", { show: false });
+  }
+}
+
+export async function fetchRegions(context) {
+  try {
+    EventBus.$emit("showOrHideLoading", { show: true });
+    const { data } = await httpClient.get("/filters/regions");
+    context.commit("setRegions", []);
+    context.commit("setRegions", ["all", ...data.regions]);
+  } catch (e) {
+    console.log("Error! ", e);
+  } finally {
+    EventBus.$emit("showOrHideLoading", { show: false });
+  }
+}
+
+export async function fetchPokedexes(context, payload) {
+  try {
+    EventBus.$emit("showOrHideLoading", { show: true });
+    const { data } = await httpClient.get("/filters/pokedexes", {
+      params: {
+        region: payload.region,
+      },
+    });
+    context.commit("setPokedexes", []);
+    context.commit("setPokedexes", data.pokedexes);
   } catch (e) {
     console.log("Error! ", e);
   } finally {

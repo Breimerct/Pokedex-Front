@@ -7,5 +7,7 @@ export default function () {
     pokemonVarieties: null,
     pokemonStats: null,
     pokemonEvolutions: null,
+    regions: [],
+    pokedexes: ["national"],
   };
 }

@@ -53,19 +53,18 @@ export default {
   watch: {
     getPokemonVarieties: function (val) {
       if (val !== null) {
-        EventBus.$emit("showOrHideLoading", { show: true });
         this.fetchPokemonStats({
           url: this.getPokemonVarieties[this.varietySelected].url,
         });
-        this.fetchPokemonEvolutions({ name: this.$route.params.pokemonName });
-      } else {
-        EventBus.$emit("showOrHideLoading", { show: false });
       }
     },
     getPokemonAbout: function (val) {
       if (val !== null) {
-        EventBus.$emit("showOrHideLoading", { show: true });
-      } else {
+        this.fetchPokemonEvolutions({ name: this.$route.params.pokemonName });
+      }
+    },
+    getPokemonEvolutions: function (val) {
+      if (val !== null) {
         EventBus.$emit("showOrHideLoading", { show: false });
       }
     },
@@ -106,12 +105,12 @@ export default {
     },
   },
 
-  mounted() {
+  async mounted() {
     this.clearData();
     if (this.$route.params.pokemonName) {
       this.pokemonName = this.$route.params.pokemonName;
-      this.fetchPokemonVarieties({ name: this.pokemonName });
-      this.fetchPokemonAbout({ name: this.pokemonName });
+      await this.fetchPokemonVarieties({ name: this.pokemonName });
+      await this.fetchPokemonAbout({ name: this.pokemonName });
     }
   },
 };
